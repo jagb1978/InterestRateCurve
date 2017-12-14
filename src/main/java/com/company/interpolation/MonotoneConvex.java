@@ -164,11 +164,11 @@ public class MonotoneConvex implements Interpolation {
 
     private int getIndex(double Term) {
         int iLastIndex;
-        if (!this.Negative_Forwards_Allowed) {
+       // if (!this.Negative_Forwards_Allowed) {
             iLastIndex = (int) (collar(0, this.lastIndexUsed, this.indexOfLastTerm));
-        } else {
-            iLastIndex = this.lastIndexUsed;
-        }
+//        } else {
+//            iLastIndex = this.lastIndexUsed;
+//        }
         while (true) {
             if (Term >= this.terms[iLastIndex]) {
                 if (iLastIndex == this.terms.length - 1) {
@@ -249,6 +249,10 @@ public class MonotoneConvex implements Interpolation {
         } else {
             return variable;
         }
+    }
+
+    public double[] getDiscreteForwardRates(){
+        return this.discreteForwardRates;
     }
 
     @Override
